@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="rootDetalle" alignment="TOP_CENTER" focusTraversable="true" prefHeight="480.0" prefWidth="400.0" spacing="12.0" style="-fx-background-color: #f8fafc;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="produ.jes12.registroconsulta.controllers.DetalleController">
+    <padding>
+        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+    </padding>
+    <children>
+        <VBox alignment="CENTER" spacing="2.0">
+            <children>
+                <Label text="Detalle del Cliente" textFill="#0f172a">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+                <Label text="Datos transferidos desde la tabla" textFill="#64748b">
+                    <font>
+                        <Font size="11.0" />
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+
+        <VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #ffffff; -fx-background-radius: 8px; -fx-border-color: #e2e8f0; -fx-border-radius: 8px;" VBox.vgrow="ALWAYS">
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </padding>
+            <children>
+                <StackPane maxWidth="90.0" prefHeight="90.0" prefWidth="90.0" style="-fx-background-color: #f1f5f9; -fx-border-color: #cbd5e1; -fx-border-radius: 6px; -fx-background-radius: 6px;">
+                    <children>
+                        <ImageView fx:id="imgFotoDetalle" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                    </children>
+                </StackPane>
+
+                <Separator />
+
+                <GridPane hgap="8.0" vgap="8.0">
+                    <columnConstraints>
+                        <ColumnConstraints maxWidth="130.0" minWidth="110.0" prefWidth="120.0" />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Nombre Completo:" textFill="#475569" GridPane.rowIndex="0">
+                            <font><Font name="System Bold" size="12.0" /></font>
+                        </Label>
+                        <Label fx:id="lblNombreCompleto" text="-" textFill="#0f172a" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                        <Label text="Tipo de Cliente:" textFill="#475569" GridPane.rowIndex="1">
+                            <font><Font name="System Bold" size="12.0" /></font>
+                        </Label>
+                        <Label fx:id="lblTipoCliente" text="-" textFill="#0f172a" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                        <Label text="Ciudad:" textFill="#475569" GridPane.rowIndex="2">
+                            <font><Font name="System Bold" size="12.0" /></font>
+                        </Label>
+                        <Label fx:id="lblCiudad" text="-" textFill="#0f172a" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                        <Label text="Nacimiento:" textFill="#475569" GridPane.rowIndex="3">
+                            <font><Font name="System Bold" size="12.0" /></font>
+                        </Label>
+                        <Label fx:id="lblFechaNacimiento" text="-" textFill="#0f172a" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                        <Label text="Solicitud:" textFill="#475569" GridPane.rowIndex="4">
+                            <font><Font name="System Bold" size="12.0" /></font>
+                        </Label>
+                        <Label fx:id="lblTipoSolicitud" text="-" textFill="#0f172a" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                        <Label text="Servicios:" textFill="#475569" GridPane.rowIndex="5">
+                            <font><Font name="System Bold" size="12.0" /></font>
+                        </Label>
+                        <Label fx:id="lblServicios" text="-" textFill="#0f172a" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                    </children>
+                </GridPane>
+            </children>
+        </VBox>
+
+        <Button fx:id="btnCerrar" onAction="#handleCerrar" prefHeight="34.0" prefWidth="160.0" style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-background-radius: 5px; -fx-cursor: hand;" text="Cerrar (o presione ESC)">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Button>
+    </children>
+</VBox>

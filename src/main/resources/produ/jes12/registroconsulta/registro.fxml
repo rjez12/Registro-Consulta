@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="670.0" prefWidth="660.0" style="-fx-background-color: #f8fafc;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="produ.jes12.registroconsulta.controllers.RegistroController">
+    <children>
+        <VBox spacing="14.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="15.0">
+            <children>
+                <VBox spacing="2.0">
+                    <children>
+                        <Label text="Registro de Cliente" textFill="#0f172a">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </Label>
+                        <Label text="Ingrese los datos requeridos, seleccione la fotografía y la carpeta de expediente" textFill="#64748b">
+                            <font>
+                                <Font size="12.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+
+                <VBox spacing="10.0" style="-fx-background-color: #ffffff; -fx-background-radius: 8px; -fx-border-color: #e2e8f0; -fx-border-radius: 8px;">
+                    <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                    </padding>
+                    <children>
+                        <GridPane hgap="12.0" vgap="10.0">
+                            <columnConstraints>
+                                <ColumnConstraints maxWidth="170.0" minWidth="140.0" prefWidth="150.0" />
+                                <ColumnConstraints hgrow="ALWAYS" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="32.0" />
+                                <RowConstraints minHeight="32.0" />
+                                <RowConstraints minHeight="32.0" />
+                                <RowConstraints minHeight="32.0" />
+                                <RowConstraints minHeight="32.0" />
+                                <RowConstraints minHeight="32.0" />
+                                <RowConstraints minHeight="32.0" />
+                                <RowConstraints minHeight="35.0" />
+                                <RowConstraints minHeight="110.0" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="Nombres: *" textFill="#334155" GridPane.rowIndex="0">
+                                    <font><Font name="System Bold" size="12.0" /></font>
+                                </Label>
+                                <TextField fx:id="txtNombres" prefHeight="32.0" promptText="Nombres" style="-fx-border-color: #cbd5e1; -fx-border-radius: 5px; -fx-background-radius: 5px;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                                <Label text="Apellidos: *" textFill="#334155" GridPane.rowIndex="1">
+                                    <font><Font name="System Bold" size="12.0" /></font>
+                                </Label>
+                                <TextField fx:id="txtApellidos" prefHeight="32.0" promptText="Apellidos" style="-fx-border-color: #cbd5e1; -fx-border-radius: 5px; -fx-background-radius: 5px;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                <Label text="Tipo de Cliente: *" textFill="#334155" GridPane.rowIndex="2">
+                                    <font><Font name="System Bold" size="12.0" /></font>
+                                </Label>
+                                <ComboBox fx:id="cmbTipoCliente" maxWidth="1.7976931348623157E308" prefHeight="32.0" promptText="Seleccione tipo" style="-fx-border-color: #cbd5e1; -fx-border-radius: 5px; -fx-background-radius: 5px;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                                <Label text="Ciudad: *" textFill="#334155" GridPane.rowIndex="3">
+                                    <font><Font name="System Bold" size="12.0" /></font>
+                                </Label>
+                                <ComboBox fx:id="cmbCiudad" maxWidth="1.7976931348623157E308" prefHeight="32.0" promptText="Seleccione ciudad" style="-fx-border-color: #cbd5e1; -fx-border-radius: 5px; -fx-background-radius: 5px;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                                <Label text="Fecha de Nacimiento: *" textFill="#334155" GridPane.rowIndex="4">
+                                    <font><Font name="System Bold" size="12.0" /></font>
+                                </Label>
+                                <DatePicker fx:id="dpFechaNacimiento" maxWidth="1.7976931348623157E308" prefHeight="32.0" promptText="dd/mm/aaaa" style="-fx-border-color: #cbd5e1; -fx-border-radius: 5px; -fx-background-radius: 5px;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                                <Label text="Tipo de Solicitud: *" textFill="#334155" GridPane.rowIndex="5">
+                                    <font><Font name="System Bold" size="12.0" /></font>
+                                </Label>
+                                <HBox alignment="CENTER_LEFT" spacing="15.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                    <children>
+                                        <RadioButton fx:id="rbSoporte" mnemonicParsing="false" selected="true" text="Soporte">
+                                            <toggleGroup>
+                                                <ToggleGroup fx:id="tgTipoSolicitud" />
+                                            </toggleGroup>
+                                        </RadioButton>
+                                        <RadioButton fx:id="rbCotizacion" mnemonicParsing="false" text="Cotización" toggleGroup="$tgTipoSolicitud" />
+                                        <RadioButton fx:id="rbReclamo" mnemonicParsing="false" text="Reclamo" toggleGroup="$tgTipoSolicitud" />
+                                    </children>
+                                </HBox>
+
+                                <Label text="Servicios de Interés:" textFill="#334155" GridPane.rowIndex="6">
+                                    <font><Font name="System Bold" size="12.0" /></font>
+                                </Label>
+                                <HBox alignment="CENTER_LEFT" spacing="15.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                    <children>
+                                        <CheckBox fx:id="chkConsultoria" text="Consultoría" />
+                                        <CheckBox fx:id="chkDesarrollo" text="Desarrollo" />
+                                        <CheckBox fx:id="chkMantenimiento" text="Mantenimiento" />
+                                    </children>
+                                </HBox>
+
+                                <!-- DIRECTORY CHOOSER EN EL FORMULARIO DE CLIENTE -->
+                                <Label text="Carpeta de Expediente:" textFill="#334155" GridPane.rowIndex="7">
+                                    <font><Font name="System Bold" size="12.0" /></font>
+                                </Label>
+                                <HBox alignment="CENTER_LEFT" spacing="8.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                    <children>
+                                        <TextField fx:id="txtRutaExpediente" editable="false" prefHeight="32.0" promptText="Seleccionar carpeta..." style="-fx-border-color: #cbd5e1; -fx-border-radius: 5px; -fx-background-radius: 5px;" HBox.hgrow="ALWAYS" />
+                                        <Button fx:id="btnSeleccionarDirectorio" onAction="#handleSeleccionarDirectorio" prefHeight="32.0" style="-fx-background-color: #f1f5f9; -fx-text-fill: #334155; -fx-border-color: #cbd5e1; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-cursor: hand;" text="Elegir Carpeta..." />
+                                    </children>
+                                </HBox>
+
+                                <!-- FILE CHOOSER DE FOTOGRAFÍA -->
+                                <Label text="Fotografía del Cliente:" textFill="#334155" GridPane.rowIndex="8">
+                                    <font><Font name="System Bold" size="12.0" /></font>
+                                </Label>
+                                <VBox spacing="6.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                    <children>
+                                        <Button fx:id="btnSeleccionarFoto" onAction="#handleSeleccionarFoto" prefHeight="30.0" style="-fx-background-color: #f1f5f9; -fx-text-fill: #334155; -fx-border-color: #cbd5e1; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-cursor: hand;" text="Seleccionar Imagen (FileChooser)" />
+                                        <StackPane alignment="CENTER" maxWidth="90.0" prefHeight="90.0" prefWidth="90.0" style="-fx-background-color: #f8fafc; -fx-border-color: #cbd5e1; -fx-border-radius: 5px; -fx-background-radius: 5px;">
+                                            <children>
+                                                <ImageView fx:id="imgFotografia" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                                            </children>
+                                        </StackPane>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </GridPane>
+                    </children>
+                </VBox>
+
+                <!-- Botones de Acción -->
+                <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                    <children>
+                        <Button fx:id="btnCancelar" onAction="#handleCancelar" prefHeight="34.0" prefWidth="90.0" style="-fx-background-color: #f1f5f9; -fx-text-fill: #475569; -fx-background-radius: 5px; -fx-cursor: hand;" text="Cancelar">
+                            <font><Font name="System Bold" size="12.0" /></font>
+                        </Button>
+                        <Button fx:id="btnLimpiar" onAction="#handleLimpiar" prefHeight="34.0" prefWidth="90.0" style="-fx-background-color: #e2e8f0; -fx-text-fill: #334155; -fx-background-radius: 5px; -fx-cursor: hand;" text="Limpiar">
+                            <font><Font name="System Bold" size="12.0" /></font>
+                        </Button>
+                        <Button fx:id="btnGuardar" defaultButton="true" onAction="#handleGuardar" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-background-radius: 5px; -fx-cursor: hand;" text="Guardar">
+                            <font><Font name="System Bold" size="12.0" /></font>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
