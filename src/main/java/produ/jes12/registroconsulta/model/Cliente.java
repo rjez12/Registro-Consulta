@@ -54,6 +54,8 @@ public class Cliente {
         return nombres;
     }
 
+
+
     public void setNombres(String nombres) {
         this.nombres = nombres;
     }

@@ -1,11 +1,13 @@
 package produ.jes12.registroconsulta.controllers;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import produ.jes12.registroconsulta.util.AlertaUtil;
 import produ.jes12.registroconsulta.util.NavegacionUtil;
 
 public class LoginController {
@@ -27,27 +29,33 @@ public class LoginController {
         String usuario = txtUsuario.getText().trim();
         String password = txtPassword.getText().trim();
 
-        //Validar los campos vacios
+        // 1. Validar campos vacíos usando AlertaUtil.mostrarAdvertencia
         if (usuario.isEmpty() || password.isEmpty()) {
-            NavegacionUtil.mostrarAlerta(
-                    Alert.AlertType.WARNING,
+            AlertaUtil.mostrarAdvertencia(
                     "Campos Incompletos",
+                    "Información requerida faltante",
                     "Por favor, ingrese tanto el usuario como la contraseña."
             );
             return;
         }
 
-        //Credenciales para prueba
+        // 2. Credenciales para prueba
         if (usuario.equals("admin") && password.equals("1234")) {
+            // Obtenemos el Stage actual a partir del botón de inicio de sesión
+            Stage stageActual = (Stage) btnIniciarSesion.getScene().getWindow();
+
             NavegacionUtil.cambiarVentana(
-                    txtUsuario,
+                    stageActual,
                     "/produ/jes12/registroconsulta/main.fxml",
-                    "Sistema Principal"
+                    "Sistema Principal - Menú de Navegación",
+                    850,
+                    580
             );
         } else {
-            NavegacionUtil.mostrarAlerta(
-                    Alert.AlertType.ERROR,
+            // 3. Acceso denegado usando AlertaUtil.mostrarError
+            AlertaUtil.mostrarError(
                     "Acceso Denegado",
+                    "Credenciales incorrectas",
                     "El usuario o la contraseña son incorrectos."
             );
         }
@@ -55,8 +63,15 @@ public class LoginController {
 
     @FXML
     private void handleSalir(ActionEvent event) {
-        if (NavegacionUtil.mostrarConfirmacion("Confirmar Salida", "¿Está seguro de que desea salir de la aplicación?")) {
-            System.exit(0);
+        // 4. Confirmación de salida usando AlertaUtil
+        boolean confirmar = AlertaUtil.mostrarConfirmacion(
+                "Confirmar Salida",
+                "¿Está seguro de que desea salir?",
+                "Se cerrará la aplicación por completo."
+        );
+
+        if (confirmar) {
+            Platform.exit();
         }
     }
 }
