@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>produ.jes12.registroconsulta/produ.jes12.registroconsulta.HelloApplication
+                            <mainClass>produ.jes12.registroconsulta/produ.jes12.registroconsulta.AppApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
